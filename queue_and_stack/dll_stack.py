@@ -1,16 +1,3 @@
-
-# from doubly_linked_list import DoublyLinkedList
-# import sys
-# sys.path.append('../doubly_linked_list')
-
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
-
-
 class Stack:
     def __init__(self):
         self.size = 0
@@ -25,10 +12,10 @@ class Stack:
 
     def push(self, value):
         if self.head is None:
-            self.head = Node(value)
+            self.head = DoublyLinkedList(value)
             self.size += 1
         else:
-            new_node = Node(value)
+            new_node = DoublyLinkedList(value)
             self.head.prev = new_node
             new_node.next = self.head
             new_node.prev = None
@@ -53,18 +40,17 @@ class Stack:
         return self.size
 
 
-s = Stack()
-s.push(100)
-# s.push(105)
-# s.push(110)
-
-print(s.pop())
-# print(s.pop())
-# print(s.pop())
-
-print(s.len())
-
-# s.push(101)
-# s.push(105)
-# self.s.pop(), 105
-# self.s.len()
+if __name__ == "__main__":
+    # s = Stack()
+    # s.push(100)
+    # s.push(105)
+    # s.push(110)
+    # print(s.pop())
+    # print(s.pop())
+    # print(s.pop())
+    # print(s.len())
+    # s.push(101)
+    # s.push(105)
+    # self.s.pop(), 105
+    # self.s.len()
+    pass
