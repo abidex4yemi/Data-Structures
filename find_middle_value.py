@@ -8,7 +8,7 @@
 """
     - Traverse linked list using two pointers
     - Move one pointer by one and other by two
-    - When the fast pointer reachesend
+    - When the fast pointer reaches end
     - Slow pointer will reach middle of the linked list
 """
 
@@ -19,7 +19,7 @@ class Node:
         self.next = None
 
     def add(self, value):
-        self.next = value
+        self.next = Node(value)
 
     def find_middle(self):
         middle = self
@@ -35,6 +35,16 @@ class Node:
 
 
 root = Node(3)
-root.add(4)
-
+cur = root
+cur.add(4)
+print(cur)
+cur = cur.next
+print(cur)
+cur.add(5)
+cur = cur.next
+cur.add(6)
+cur = cur.next
+cur.add(7)
+cur = cur.next
+print(cur.next)
 print(root.find_middle())
