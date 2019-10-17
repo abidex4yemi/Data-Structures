@@ -28,12 +28,9 @@ class BinarySearchTree:
                 self.right = BinarySearchTree(value)
                 return True
 
-    # Return True if the tree contains the value
-    # False if it does not
-
     def contains(self, target):
         if self.value == target:
-            return self.value
+            return True
         elif target < self.value and self.left:
             return self.left.contains(target)
         elif target > self.value and self.right:
@@ -43,12 +40,18 @@ class BinarySearchTree:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        if not self:
+            return None
+        if not self.right:
+            return self.value
+        return self.right.get_max()
 
-    # Call the function `cb` on the value of each node
-    # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+        cb(self.value)
+        if self.left:
+            self.left.for_each(cb)
+        if self.right:
+            self.right.for_each(cb)
 
     # DAY 2 Project -----------------------
 
