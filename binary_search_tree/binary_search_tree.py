@@ -55,18 +55,44 @@ class BinarySearchTree:
 
     # DAY 2 Project -----------------------
 
+    def iterative_df_for_each(self, cb):
+        stack = []
+        stack.append(self)
+        while len(stack):
+            current_node = stack.pop()
+            if current_node.right:
+                stack.append(current_node.right)
+            if current_node.left:
+                stack.append(current_node.left)
+            cb(current_node.value)
+
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
+
     def in_order_print(self, node):
-        pass
+        root = node
+        if root:
+            self.in_order_print(node.left)
+            print(root.value)
+            self.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
         pass
+        # Print the value of every node, starting with the given node,
+        # in an iterative depth first traversal
+        root = node
+        nodes = []
+        stack = [root]
+        while stack:
+            cur_node = stack[0]
+            stack = stack[1:]
+            nodes.append(cur_node)
+            for child in cur_node:
+                stack.append(child)
+        return nodes
 
-    # Print the value of every node, starting with the given node,
-    # in an iterative depth first traversal
     def dft_print(self, node):
         pass
 
@@ -75,8 +101,14 @@ class BinarySearchTree:
 
     # Print In-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        if root:
+            print(root.val)
+            pre_order_dft(root.left)
+            pre_order_dft(root.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if root:
+            post_order_dft(root.left)
+            post_order_dft(root.right)
+            print(root.val)
